@@ -2,15 +2,33 @@
   "name": "hackathon",
   "version": "1.0.0",
   "description": "Developed at Sela Hackathon",
-  "main": "index.js",
+  "main": "./out/vscode_extension/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.swaggergen",
+        "title": "Swagger Generator"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.25.0"
+  },
   "scripts": {
-    "start": "ts-node basic-transform.ts"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bnayae/sela-hackathon-swagger.git"
   },
-  "keywords": [],
+  "keywords": [
+    "Swagger",
+    "VSCode",
+    "TypeScript"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -19,6 +37,9 @@
   "homepage": "https://github.com/bnayae/sela-hackathon-swagger#readme",
   "devDependencies": {
     "typescript": "^3.3.3",
-    "ts-node": "^8.0.2"
+    "ts-node": "^8.0.2",
+    "@types/node": "^8.10.25",
+    "tslint": "^5.11.0",
+    "vscode": "^1.1.22"
   }
 }
