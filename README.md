@@ -19,3 +19,6 @@ npm init -f
 npm install -s swagger-ui-express
 npm i -g ts-node  
 npm i typescript -D
+
+# running VS extension directly from GitHub
+npm run compile  
