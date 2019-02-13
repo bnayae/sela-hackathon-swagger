@@ -5,7 +5,7 @@
 		"outDir": "out",
 		"lib": ["es6"],
 		"sourceMap": true,
-		"rootDir": "src/vscode_extension"
+		"rootDir": "src"
 	},
 	"exclude": ["node_modules", ".vscode-test"]
 }
