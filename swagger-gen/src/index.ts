@@ -3,9 +3,9 @@ import { resolve, dirname } from 'path';
 import { writeFileSync } from 'fs';
 import { analyze } from './analyzer';
 
-const packagejson = process.argv[2] || '../demo/package.json';
-const tsconfig = process.argv[3] || '../demo/tsconfig.json';
-const outputPath = process.argv[4] || '../swagger.json';
+const packagejson = process.argv[2] || '../../demo/package.json';
+const tsconfig = process.argv[3] || '../../demo/tsconfig.json';
+const outputPath = process.argv[4] || '../../demo/swagger.json';
 
 const main = require(resolve(__dirname, packagejson)).main;
 
