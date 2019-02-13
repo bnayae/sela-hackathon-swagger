@@ -1,19 +1,24 @@
 {
-  "name": "Hackathon",
+  "name": "hackathon",
   "version": "1.0.0",
-  "description": "",
-  "main": "simple-tranfom.js",
+  "description": "Developed at Sela Hackathon",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node simple-tranfom"
+    "start": "ts-node basic-transform.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bnayae/sela-hackathon-swagger.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "typescript": "^3.3.3"
+  "bugs": {
+    "url": "https://github.com/bnayae/sela-hackathon-swagger/issues"
   },
-  "dependencies": {
+  "homepage": "https://github.com/bnayae/sela-hackathon-swagger#readme",
+  "devDependencies": {
+    "typescript": "^3.3.3",
     "ts-node": "^8.0.2"
   }
 }
