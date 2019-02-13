@@ -1,33 +1,18 @@
 import * as ts from 'typescript';
+import { resolve } from 'path';
+import { writeFileSync } from 'fs';
+import { analyze } from './analyzer';
+const main = require('./package.json').main;
 
-const source = `
-class MyClass {
-    public a: number;
-    public b: string;
-}
-`;
+const tsconfig = process.argv[2] || './tsconfig.json';
+const outputPath = process.argv[3] || './swagger.json';
 
-function basicTransformer<T extends ts.Node>(): ts.TransformerFactory<T> {
-    return context => {
-        const visit: ts.Visitor = node => {
-            if (ts.isClassDeclaration(node)) {
-                console.log('A class', ts.getNameOfDeclaration(node).getText());
-                return [
-                    ts.createDebuggerStatement(),
-                    ts.visitEachChild(node, child => visit(child), context)
-                ]
-            }
+const config = ts.readConfigFile(resolve(__dirname, tsconfig), ts.sys.readFile).config;
 
-            return ts.visitEachChild(node, child => visit(child), context);
-        };
-
-        return node => ts.visitNode(node, visit);
-    };
-}
-
-const result = ts.transpileModule(source, {
-    compilerOptions: { module: ts.ModuleKind.CommonJS },
-    transformers:  { before: [basicTransformer()] }
+const program = ts.createProgram([main], {
+    options: config
 });
 
-console.log(result.outputText);
+const results = analyze(program);
+
+writeFileSync(resolve(__dirname, outputPath), JSON.stringify(results));

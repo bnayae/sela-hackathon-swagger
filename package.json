@@ -2,7 +2,7 @@
   "name": "hackathon",
   "version": "1.0.0",
   "description": "Developed at Sela Hackathon",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
     "start": "ts-node basic-transform.ts"
   },
@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/bnayae/sela-hackathon-swagger#readme",
   "devDependencies": {
-    "typescript": "^3.3.3",
-    "ts-node": "^8.0.2"
+    "@types/express": "^4.16.1",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
   }
 }
