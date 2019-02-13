@@ -1,7 +1,13 @@
 import * as ts from 'typescript';
 
 export function analyze(host: ts.CompilerHost, program: ts.Program) {
-    const results: { [key: string]: any } = {}
+    const results: { [key: string]: any } = {
+        swagger: '2.0',
+        info: null,
+        paths: {
+
+        }
+    }
     const checker = program.getTypeChecker();
 
     for (const sourceFile of program.getSourceFiles()) {
@@ -36,7 +42,7 @@ export function analyze(host: ts.CompilerHost, program: ts.Program) {
                         if (callSymbol && callSymbol.name == "get" && callExpr.arguments[1].kind === ts.SyntaxKind.ArrowFunction) {
                             const callback = (<ts.ArrowFunction>callExpr.arguments[1])
 
-                            results[(<ts.StringLiteral>callExpr.arguments[0]).text] = { }
+                            results[(<ts.StringLiteral>callExpr.arguments[0]).text] = {}
                         }
                     }
                     else if (type.symbol.name == "Express" && node.parent.parent.kind === ts.SyntaxKind.CallExpression) {
@@ -45,7 +51,21 @@ export function analyze(host: ts.CompilerHost, program: ts.Program) {
                         if (callSymbol && callSymbol.name == "get" && callExpr.arguments[1].kind === ts.SyntaxKind.ArrowFunction) {
                             const callback = (<ts.ArrowFunction>callExpr.arguments[1])
 
-                            results[(<ts.StringLiteral>callExpr.arguments[0]).text] = {}
+                            const path = (<ts.StringLiteral>callExpr.arguments[0]).text
+                            results.paths[path] = {
+                                get: {
+                                    produces: "application/json",
+                                    parameters: {},
+                                    responses: {
+                                        200: {
+                                            description: "successful operation"
+                                        },
+                                        400: {
+                                            description: "Invalid status value"
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
