@@ -9,3 +9,8 @@ https://expressjs.com/en/4x/api.html
 https://swagger.io/docs/specification/basic-structure/  
 https://dev.doctorevidence.com/how-to-write-a-typescript-transform-plugin-fc5308fdd943  
 https://43081j.com/2018/08/creating-a-typescript-transform  
+
+# Basic setup to run
+npm init -f
+npm i -g ts-node  
+npm i typescript -D  
