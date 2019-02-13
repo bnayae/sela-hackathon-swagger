@@ -3,10 +3,11 @@ import {
     Program, 
     CallExpression, 
     isCallExpression, 
-    forEachChild
+    forEachChild,
+    CompilerHost
 } from 'typescript';
 
-export function analyze(program: Program) {
+export function analyze(host: CompilerHost, program: Program) {
     const results: string[] = [];
     const checker = program.getTypeChecker();
 
