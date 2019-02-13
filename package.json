@@ -1,0 +1,26 @@
+{
+  "name": "sela-hackathon-swagger",
+  "version": "1.0.0",
+  "description": "Developed at Sela Hackathon",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bnayae/sela-hackathon-swagger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bnayae/sela-hackathon-swagger/issues"
+  },
+  "homepage": "https://github.com/bnayae/sela-hackathon-swagger#readme",
+  "devDependencies": {
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "ts-node": "^8.0.2"
+  }
+}
