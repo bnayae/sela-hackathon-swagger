@@ -1,0 +1,19 @@
+{
+  "name": "Hackathon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "simple-tranfom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node simple-tranfom"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "ts-node": "^8.0.2"
+  }
+}
