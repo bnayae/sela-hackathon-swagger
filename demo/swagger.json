@@ -1,1 +1,48 @@
-{"/home":{},"/values/:id/:count":{},"/items":{}}
+{
+    "swagger": "2.0",
+    "info": null,
+    "paths": {
+        "/home": {
+            "get": {
+                "produces": "application/json",
+                "parameters": {},
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/values/:id/:count": {
+            "get": {
+                "produces": "application/json",
+                "parameters": {},
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/items": {
+            "get": {
+                "produces": "application/json",
+                "parameters": {},
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        }
+    }
+}

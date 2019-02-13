@@ -18,4 +18,4 @@ const program = ts.createProgram([resolve(dirname(resolve(__dirname, packagejson
 
 const results = analyze(host, program);
 
-writeFileSync(resolve(__dirname, outputPath), JSON.stringify(results));
+writeFileSync(resolve(__dirname, outputPath), JSON.stringify(results, null, 4));
