@@ -17,15 +17,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Welcome to Swagger Generator!');
-	    
-		// Display a message box to the user
-        const workspace = vscode.workspace.workspaceFolders[0];
-        if (workspace) {
-            vscode.workspace.findFiles(new vscode.RelativePattern(workspace, "./package.json")).then(results => {
-                console.log('results: ', results);
-            });
-        }
-    
+		
+		var folders = vscode.workspace.workspaceFolders;
+		folders.forEach(function(currentWorkspaceFolder){
+			console.log(currentWorkspaceFolder.name);
+			vscode.workspace.findFiles(new vscode.RelativePattern(currentWorkspaceFolder, "**/package.json"))
+				.then(results => {
+                	console.log('results: ', results);
+            	});
+		});
 	});
 
 	context.subscriptions.push(disposable);
